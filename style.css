@@ -1,0 +1,501 @@
+:root {
+  --bg: linen;
+  --text: navy;
+  --card: white;
+  --track-bg: peachpuff;
+  --thumb-bg: coral;
+  --border: wheat;
+  --toggle-width: 72px;
+  --toggle-height: 38px;
+  --thumb-size: 28px;
+  --thumb-travel: 34px;
+  --icon-size: 16px;
+}
+
+html.dark {
+  --bg: black;
+  --text: snow;
+  --card: navy;
+  --track-bg: black;
+  --thumb-bg: gold;
+  --border: orchid;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  width: 100%;
+}
+
+.mustang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.civic-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  padding: 0 8px;
+  border-radius: 999px;
+  background-color: var(--track-bg);
+  border: 2px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.corolla-icon {
+  font-size: var(--icon-size);
+  line-height: 1;
+  z-index: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.camry-thumb {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 50%;
+  background-color: var(--thumb-bg);
+  box-shadow: 0 2px 6px gray;
+  transform: translateY(-50%);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+}
+
+html.dark .camry-thumb {
+  transform: translate(var(--thumb-travel), -50%);
+}
+
+html:not(.dark) .moon,
+html.dark .sun {
+  opacity: 0.45;
+  transform: scale(0.85);
+}
+
+html.dark .moon,
+html:not(.dark) .sun {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.mustang-toggle:focus-visible .civic-track {
+  outline: 3px solid var(--thumb-bg);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --toggle-width: 62px;
+    --toggle-height: 34px;
+    --thumb-size: 24px;
+    --thumb-travel: 28px;
+    --icon-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .civic-track,
+  .corolla-icon,
+  .camry-thumb {
+    transition: none;
+  }
+}
+
+.navbar {
+  padding: 18px;
+}
+
+.navbar-brand {
+  font-size: 23px;
+}
+
+.nav-link {
+  margin-left: 12px;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: orange;
+}
+
+.landcruiser-hero {
+  background-image: url("n2.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.landcruiser-hero h1,
+.spongebob-hero h1,
+.rolex-hero h1,
+.kendrick-hero h1,
+.inception-hero h1 {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px black;
+}
+
+.landcruiser-hero p,
+.spongebob-hero p,
+.rolex-hero p,
+.kendrick-hero p,
+.inception-hero p {
+  color: white;
+  font-size: 19px;
+  text-shadow: 1px 1px 3px black;
+  margin: 20px 0;
+}
+
+.landcruiser-hero .btn:hover {
+  background-color: darkorange;
+  transform: scale(1.05);
+}
+
+.hilux-intro {
+  line-height: 1.8;
+}
+
+.hilux-intro h2 {
+  color: darkgreen;
+  margin-bottom: 20px;
+}
+
+.hilux-intro img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.defender-destinations {
+  background-color: whitesmoke;
+}
+
+.defender-destinations h2,
+.porsche-activities h2,
+.rangerover-stay h2 {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.wrangler-card {
+  transition: 0.3s;
+  border: none;
+}
+
+.wrangler-card:hover {
+  transform: translateY(-5px);
+}
+
+.wrangler-card img {
+  height: 190px;
+  object-fit: cover;
+}
+
+.porsche-activities {
+  background-color: white;
+}
+
+.ferrari-box {
+  background-color: whitesmoke;
+  padding: 30px;
+  border-radius: 8px;
+  height: 100%;
+  border-bottom: 4px solid darkgreen;
+  transition: 0.3s;
+}
+
+.ferrari-box:hover {
+  transform: translateY(-5px);
+}
+
+.ferrari-box h4 {
+  color: darkgreen;
+}
+
+.rangerover-stay {
+  background-color: lightgray;
+}
+
+.gwagon-booking {
+  background-color: darkgreen;
+  color: white;
+}
+
+.gwagon-booking h2 {
+  font-weight: bold;
+}
+
+.spongebob-hero {
+  background-image: url("n1.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.rolex-hero {
+  background-image: url("Wallpaper.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.kendrick-hero {
+  background-image: url("Biking.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.patrick-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.squidward-section,
+.sandy-section,
+.cartier-activities,
+.breitling-section {
+  background-color: whitesmoke;
+}
+
+.squidward-section h4 {
+  color: darkgreen;
+}
+
+.gary-box {
+  background-color: white;
+  padding: 25px 10px;
+  text-align: center;
+  border-radius: 8px;
+  height: 100%;
+  border-bottom: 4px solid darkgreen;
+}
+
+.gary-box h3 {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.omega-card {
+  border: none;
+  transition: 0.3s;
+}
+
+.omega-card:hover {
+  transform: translateY(-5px);
+}
+
+.omega-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.patek-info,
+.tagheuer-card,
+.hublot-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  height: 100%;
+  border-bottom: 4px solid darkgreen;
+  transition: 0.3s;
+}
+
+.patek-info:hover,
+.tagheuer-card:hover,
+.hublot-card:hover {
+  transform: translateY(-5px);
+}
+
+.patek-info h4,
+.tagheuer-card h4,
+.hublot-card h4 {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.nicki-item {
+  background-color: whitesmoke;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.nicki-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.nicki-item:hover img {
+  transform: scale(1.05);
+}
+
+.nicki-item:hover {
+  box-shadow: 0 5px 15px lightgray;
+}
+
+.nicki-item h5 {
+  padding: 15px;
+  color: darkgreen;
+}
+
+.inception-hero {
+  background-image: url("n4.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.matrix-info {
+  background-color: whitesmoke;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 5px solid darkgreen;
+}
+
+.matrix-info h5 {
+  color: darkgreen;
+  margin-top: 15px;
+}
+
+.avatar-form {
+  background-color: whitesmoke;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.avatar-form h2,
+.interstellar-section h2 {
+  color: darkgreen;
+  margin-bottom: 20px;
+}
+
+.avatar-form input:focus,
+.avatar-form textarea:focus {
+  border-color: green;
+  box-shadow: 0 0 5px lightgreen;
+}
+
+.interstellar-section {
+  background-color: lightgray;
+}
+
+.modal-body img {
+  max-height: 75vh;
+  width: auto;
+}
+
+.lexus-footer {
+  background-color: darkgreen;
+  color: white;
+  padding: 30px 10px;
+}
+
+.lexus-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.lexus-footer a:hover {
+  color: orange;
+}
+
+@media (max-width: 768px) {
+  .landcruiser-hero {
+    min-height: 400px;
+  }
+
+  .landcruiser-hero h1,
+  .spongebob-hero h1,
+  .rolex-hero h1,
+  .kendrick-hero h1,
+  .inception-hero h1 {
+    font-size: 30px;
+  }
+
+  .landcruiser-hero p,
+  .spongebob-hero p,
+  .rolex-hero p,
+  .kendrick-hero p,
+  .inception-hero p {
+    font-size: 16px;
+  }
+
+  .hilux-intro {
+    text-align: center;
+  }
+
+  .patrick-image {
+    height: 230px;
+  }
+
+  .nicki-item img {
+    height: 200px;
+  }
+
+  .avatar-form {
+    padding: 20px;
+  }
+}
